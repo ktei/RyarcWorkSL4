@@ -10,9 +10,6 @@
     <StackPanel>
         <TextBlock Text="Name"/>
         <TextBox x:Name="NameTextBox" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=Explicit, ValidatesOnDataErrors=True}" />
-
-        <TextBlock Text="Name2"/>
-        <TextBox x:Name="Name2TextBox" Text="{Binding Name2, Mode=TwoWay, UpdateSourceTrigger=Explicit, ValidatesOnDataErrors=True}" />
     </StackPanel>
         
 </UserControl>

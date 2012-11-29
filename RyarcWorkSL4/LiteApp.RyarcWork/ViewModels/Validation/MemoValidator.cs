@@ -17,11 +17,11 @@ namespace LiteApp.RyarcWork.ViewModels.Validation
     {
         protected override string ValidateProperty(string propertyName, object value)
         {
-            if (propertyName == "Name" || propertyName == "Name2")
+            if (propertyName == "Name")
             {
                 string name = value as string;
                 if (string.IsNullOrWhiteSpace(name))
-                    return "Name cannot be empty.";
+                    return "Name field is required.";
             }
             return null;
         }
