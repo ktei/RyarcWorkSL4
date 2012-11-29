@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fd181bc3-8966-4055-86e5-5193f197eb3a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:31097/Services/MemoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MemoService.xsd" MetadataType="Schema" ID="e5632128-eb7f-4ac3-b225-c32be9c2fc99" SourceId="1" SourceUrl="http://localhost:31097/Services/MemoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MemoService.wsdl" MetadataType="Wsdl" ID="97c22cf8-aa0e-46f6-b0d0-6f1f422fe410" SourceId="1" SourceUrl="http://localhost:31097/Services/MemoService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="MemoService1.wsdl" MetadataType="Wsdl" ID="36a04164-246b-4133-91f4-df280c947fea" SourceId="1" SourceUrl="http://localhost:31097/Services/MemoService.svc?wsdl" />
+    <MetadataFile FileName="MemoService1.xsd" MetadataType="Schema" ID="92a6af87-a986-4921-a671-0b958280ac5f" SourceId="1" SourceUrl="http://localhost:31097/Services/MemoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MemoService2.xsd" MetadataType="Schema" ID="e4d72af9-5cab-4161-9797-92df59824118" SourceId="1" SourceUrl="http://localhost:31097/Services/MemoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MemoService.disco" MetadataType="Disco" ID="55a34f73-0d71-4e94-b5eb-53a7e1853d7c" SourceId="1" SourceUrl="http://localhost:31097/Services/MemoService.svc?disco" />
+    <MetadataFile FileName="MemoService3.xsd" MetadataType="Schema" ID="e2a978e1-ed51-4f65-a994-a832dbdbc6f4" SourceId="1" SourceUrl="http://localhost:31097/Services/MemoService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
