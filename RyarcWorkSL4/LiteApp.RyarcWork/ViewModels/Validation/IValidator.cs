@@ -7,9 +7,7 @@ namespace LiteApp.RyarcWork.ViewModels.Validation
 
         void RemoveError(string propertyName);
 
-        void Validate();
-
-        string GetPropertyErrorMessage(string propertyName);
+        string ValidateProperty(string propertyName);
 
         bool HasErrors { get; }
 

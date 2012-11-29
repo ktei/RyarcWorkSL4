@@ -62,8 +62,11 @@ namespace LiteApp.RyarcWork.ViewModels
                     return null;
                 if (Validator == null)
                     return null;
-                Validator.Validate();
-                return Validator.GetPropertyErrorMessage(propertyName);
+                Validator.RemoveError(propertyName);
+                var error = Validator.ValidateProperty(propertyName);
+                if (!string.IsNullOrEmpty(error))
+                    Validator.AddError(propertyName, error);
+                return error;
             }
         }
     }

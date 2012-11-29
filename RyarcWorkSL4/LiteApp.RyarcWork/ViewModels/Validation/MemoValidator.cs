@@ -17,7 +17,7 @@ namespace LiteApp.RyarcWork.ViewModels.Validation
     {
         protected override string ValidateProperty(string propertyName, object value)
         {
-            if (propertyName == "Name")
+            if (propertyName == "Name" || propertyName == "Name2")
             {
                 string name = value as string;
                 if (string.IsNullOrWhiteSpace(name))

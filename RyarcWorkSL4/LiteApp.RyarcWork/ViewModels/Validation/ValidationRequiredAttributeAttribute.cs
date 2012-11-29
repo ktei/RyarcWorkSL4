@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 
 namespace LiteApp.RyarcWork.ViewModels.Validation
 {
-    public class ValidateRequiredAttribute : Attribute
+    public class ValidationRequiredAttribute : Attribute
     {
 
     }

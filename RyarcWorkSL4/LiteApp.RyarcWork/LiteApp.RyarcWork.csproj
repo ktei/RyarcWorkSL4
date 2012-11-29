@@ -122,7 +122,7 @@
     <Compile Include="Framework\IWorkspaceMetadata.cs" />
     <Compile Include="ViewModels\Validation\IValidator.cs" />
     <Compile Include="ViewModels\Validation\MemoValidator.cs" />
-    <Compile Include="ViewModels\Validation\ValidateRequiredAttributeAttribute.cs" />
+    <Compile Include="ViewModels\Validation\ValidationRequiredAttributeAttribute.cs" />
     <Compile Include="ViewModels\Validation\ValidatorBase.cs" />
     <Compile Include="Service References\Services.Memo\Reference.cs">
       <AutoGen>True</AutoGen>

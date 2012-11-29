@@ -23,6 +23,7 @@ namespace LiteApp.RyarcWork.Views
         public bool Validate()
         {
             NameTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            Name2TextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             return false;
         }
     }

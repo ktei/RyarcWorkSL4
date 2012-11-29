@@ -7,8 +7,21 @@ namespace LiteApp.RyarcWork.ViewModels.Validation
     public abstract class ValidatorBase : IValidator
     {
         readonly Dictionary<string, string> Errors;
+        object _target;
+        Dictionary<string, MethodInfo> _propertyGetters;
 
-        public object Target { get; set; }
+        public object Target 
+        {
+            get { return _target; }
+            set
+            {
+                if (_target != value)
+                {
+                    _target = value;
+                    _propertyGetters = null; // Reset this to null to enforce reload next time
+                }
+            }
+        }
 
         public ValidatorBase()
         {
@@ -45,8 +58,27 @@ namespace LiteApp.RyarcWork.ViewModels.Validation
             get { return Errors.Count != 0; }
         }
 
-        public virtual void Validate()
+        public string ValidateProperty(string propertyName)
         {
+            if (_propertyGetters == null)
+                LoadValidationRequiredProperties();
+            MethodInfo getter = null;
+            if (_propertyGetters.TryGetValue(propertyName, out getter))
+            {
+                var value = getter.Invoke(Target, new object[] { });
+                return ValidateProperty(propertyName, value);
+            }
+            return string.Empty;
+        }
+
+        protected virtual string ValidateProperty(string propertyName, object value)
+        {
+            return string.Empty;
+        }
+
+        void LoadValidationRequiredProperties()
+        {
+            _propertyGetters = new Dictionary<string, MethodInfo>();
             if (Target != null)
             {
                 foreach (var propInfo in Target.GetType().GetProperties())
@@ -56,25 +88,17 @@ namespace LiteApp.RyarcWork.ViewModels.Validation
                         var getMethod = propInfo.GetGetMethod();
                         if (getMethod == null)
                             throw new Exception(string.Format("Get method is null while this property [{0}] has Validate attribute", propInfo.Name));
-                        var value = getMethod.Invoke(Target, new object[] { });
-                        var error = ValidateProperty(propInfo.Name, value);
-                        if (!string.IsNullOrEmpty(error))
-                            AddError(propInfo.Name, error);
+                        _propertyGetters[propInfo.Name] = getMethod;
                     }
                 }
             }
-        }
-
-        protected virtual string ValidateProperty(string propertyName, object value)
-        {
-            return string.Empty;
         }
 
         private static bool IsValidateRequrired(PropertyInfo propInfo)
         {
             foreach (var attr in propInfo.GetCustomAttributes(true))
             {
-                if (attr is ValidateRequiredAttribute)
+                if (attr is ValidationRequiredAttribute)
                     return true;
             }
             return false;
