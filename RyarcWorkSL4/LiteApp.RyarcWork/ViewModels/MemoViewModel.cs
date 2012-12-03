@@ -1,17 +1,6 @@
-﻿using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using Caliburn.Micro;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
-using LiteApp.RyarcWork.ViewModels.Validation;
+﻿using System.ComponentModel;
+using LiteApp.Portable.Mvvm.Validation;
+using LiteApp.RyarcWork.Framework;
 
 namespace LiteApp.RyarcWork.ViewModels
 {
@@ -19,13 +8,21 @@ namespace LiteApp.RyarcWork.ViewModels
     {
         string _name;
 
+        public MemoViewModel()
+        {
+            RefreshBindingScope = new RefreshBindingScope();
+        }
+
+        public RefreshBindingScope RefreshBindingScope { get; set; }
+
         public string Id
         {
             get;
             set;
         }
 
-        [ValidationRequired]
+        [RequiredField]
+        [LengthConstraint(250)]
         public string Name
         {
             get { return _name; }
@@ -38,6 +35,13 @@ namespace LiteApp.RyarcWork.ViewModels
                     NotifyOfPropertyChange(() => Name);
                 }
             }
+        }
+
+        public void Save()
+        {
+            RefreshBindingScope.Scope();
+            if (this.Validator.HasErrors)
+                return;
         }
     }
 }

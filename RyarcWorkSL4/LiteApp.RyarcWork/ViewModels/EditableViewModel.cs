@@ -10,8 +10,8 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Caliburn.Micro;
 using System.ComponentModel;
-using LiteApp.RyarcWork.ViewModels.Validation;
 using System.ComponentModel.Composition;
+using LiteApp.Portable.Mvvm.Validation;
 
 namespace LiteApp.RyarcWork.ViewModels
 {
@@ -19,7 +19,7 @@ namespace LiteApp.RyarcWork.ViewModels
     {
         public EditableViewModel()
         {
-            CompositionInitializer.SatisfyImports(this);
+            this.Validator = new BaseValidator();
         }
 
         bool _isDirty;
@@ -38,7 +38,6 @@ namespace LiteApp.RyarcWork.ViewModels
             }
         }
 
-        [Import("MemoValidator")]
         public IValidator Validator
         {
             get { return _validator; }

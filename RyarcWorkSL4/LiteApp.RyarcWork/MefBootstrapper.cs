@@ -6,6 +6,7 @@ using System.ComponentModel.Composition.Primitives;
 using System.Linq;
 using Caliburn.Micro;
 using LiteApp.RyarcWork.Framework;
+using LiteApp.Portable.Mvvm.Validation;
 
 namespace LiteApp.RyarcWork
 {
@@ -47,6 +48,12 @@ namespace LiteApp.RyarcWork
         protected override void BuildUp(object instance)
         {
             container.SatisfyImportsOnce(instance);
+        }
+
+        protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
+        {
+            base.OnStartup(sender, e);
+            ValidationRuleFactory.RuleLocator = new StandardRuleLocator();
         }
     }
 }

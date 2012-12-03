@@ -120,10 +120,8 @@
     <Compile Include="Framework\IShell.cs" />
     <Compile Include="Framework\IWorkspace.cs" />
     <Compile Include="Framework\IWorkspaceMetadata.cs" />
-    <Compile Include="ViewModels\Validation\IValidator.cs" />
-    <Compile Include="ViewModels\Validation\MemoValidator.cs" />
-    <Compile Include="ViewModels\Validation\ValidationRequiredAttributeAttribute.cs" />
-    <Compile Include="ViewModels\Validation\ValidatorBase.cs" />
+    <Compile Include="Framework\RefreshBindingScope.cs" />
+    <Compile Include="Framework\VisualTreeExtensions.cs" />
     <Compile Include="Service References\Services.Memo\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -259,6 +257,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Services.Memo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LiteApp.Portable\LiteApp.Portable\LiteApp.Portable.Mvvm\LiteApp.Portable.Mvvm.csproj">
+      <Project>{395BBE17-6ECA-4B5D-BF1A-9141171F6236}</Project>
+      <Name>LiteApp.Portable.Mvvm</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
