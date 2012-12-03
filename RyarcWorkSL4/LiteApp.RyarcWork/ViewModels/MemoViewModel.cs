@@ -21,7 +21,7 @@ namespace LiteApp.RyarcWork.ViewModels
             set;
         }
 
-        [RequiredField]
+        [RequiredField(AllowWhiteSpace=false)]
         [LengthConstraint(250)]
         public string Name
         {
